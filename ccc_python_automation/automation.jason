@@ -1,0 +1,617 @@
+{
+  "defaults": {
+    "roi": [
+      0,
+      0,
+      1365,
+      767
+    ],
+    "confidence": 0.95,
+    "retry_interval": 0.5,
+    "type_interval": 0.03,
+    "highlight": {
+      "color": "#00ff00",
+      "thickness": 3,
+      "duration": 1.5
+    }
+  },
+  "procs": {
+    "login_flow": [
+      {
+        "mouse.move": {
+          "x": 1365,
+          "y": 767,
+          "duration": 0.15
+        }
+      },
+      {
+        "delay": 0.01
+      },
+      {
+        "call": "login.state.entry"
+      }
+    ],
+    "login.state.entry": [
+      {
+        "mouse.move": {
+          "x": 1365,
+          "y": 767,
+          "duration": 0.15
+        }
+      },
+      {
+        "delay": 0.01
+      },
+      {
+        "until": {
+          "locate": {
+            "file": "C:\\python_automation\\assets\\login\\login.png"
+          },
+          "timeout": 1.0
+        }
+      },
+      {
+        "locate": {
+          "file": "C:\\python_automation\\assets\\login\\login.png",
+          "click": true,
+          "percent": [
+            0.50,
+            0.50
+          ]
+        }
+      },
+      {
+        "delay": 0.01
+      },
+      {
+        "call": "login.state.input"
+      }
+    ],
+    "login.state.input": [
+      {
+        "mouse.move": {
+          "x": 1365,
+          "y": 767,
+          "duration": 0.15
+        }
+      },
+      {
+        "delay": 0.01
+      },
+      {
+        "until": {
+          "locate": {
+            "file": "C:\\python_automation\\assets\\login\\login_input.png"
+          },
+          "timeout": 5.0
+        }
+      },
+      {
+        "locate": {
+          "file": "C:\\python_automation\\assets\\login\\login_input.png",
+          "click": true,
+          "percent": [
+            0.50,
+            0.50
+          ]
+        }
+      },
+      {
+        "delay": 0.01
+      },
+      {
+        "key.type": "M+332255276"
+      },
+      {
+        "delay": 0.01
+      },
+      {
+        "call": "login.state.submit"
+      }
+    ],
+    "login.state.submit": [
+      {
+        "mouse.move": {
+          "x": 1365,
+          "y": 767,
+          "duration": 0.15
+        }
+      },
+      {
+        "delay": 0.01
+      },
+      {
+        "until": {
+          "locate": {
+            "file": "C:\\python_automation\\assets\\login\\login_button.png"
+          },
+          "timeout": 5.0
+        }
+      },
+      {
+        "locate": {
+          "file": "C:\\python_automation\\assets\\login\\login_button.png",
+          "click": true,
+          "percent": [
+            0.50,
+            0.50
+          ]
+        }
+      },
+      {
+        "delay": 0.01
+      },
+      {
+        "call": "login.state.still_login"
+      }
+    ],
+    "login.state.still_login": [
+      {
+        "mouse.move": {
+          "x": 1365,
+          "y": 767,
+          "duration": 0.15
+        }
+      },
+      {
+        "delay": 0.01
+      },
+      {
+        "until": {
+          "locate": {
+            "file": "C:\\python_automation\\assets\\login\\still_login.png"
+          },
+          "timeout": 60.0
+        }
+      },
+      {
+        "locate": {
+          "file": "C:\\python_automation\\assets\\login\\still_login.png",
+          "click": true,
+          "percent": [
+            0.50,
+            0.50
+          ]
+        }
+      },
+      {
+        "delay": 0.01
+      },
+      {
+        "call": "login.state.ok"
+      }
+    ],
+    "login.state.ok": [
+      {
+        "mouse.move": {
+          "x": 1365,
+          "y": 767,
+          "duration": 0.15
+        }
+      },
+      {
+        "delay": 0.01
+      },
+      {
+        "until": {
+          "locate": {
+            "file": "C:\\python_automation\\assets\\login\\still_login_ok.png"
+          },
+          "timeout": 5.0
+        }
+      },
+      {
+        "locate": {
+          "file": "C:\\python_automation\\assets\\login\\still_login_ok.png",
+          "click": true,
+          "percent": [
+            0.50,
+            0.50
+          ]
+        }
+      },
+      {
+        "delay": 0.01
+      },
+      {
+        "call": "login.state.ok_yes"
+      }
+    ],
+    "login.state.ok_yes": [
+      {
+        "mouse.move": {
+          "x": 1365,
+          "y": 767,
+          "duration": 0.15
+        }
+      },
+      {
+        "delay": 0.01
+      },
+      {
+        "until": {
+          "locate": {
+            "file": "C:\\python_automation\\assets\\login\\still_login_ok_yes.png"
+          },
+          "timeout": 5.0
+        }
+      },
+      {
+        "locate": {
+          "file": "C:\\python_automation\\assets\\login\\still_login_ok_yes.png",
+          "click": true,
+          "percent": [
+            0.50,
+            0.50
+          ]
+        }
+      },
+      {
+        "delay": 0.01
+      },
+      {
+        "call": "state.start"
+      }
+    ],
+    "ensure_login": [
+      {
+        "mouse.move": {
+          "x": 1365,
+          "y": 767,
+          "duration": 0.15
+        }
+      },
+      {
+        "delay": 3.0
+      },
+      {
+        "if": {
+          "locate": {
+            "file": "C:\\python_automation\\assets\\login\\login.png",
+            "timeout": 1.0
+          },
+          "then": [
+            {
+              "call": "login_flow"
+            }
+          ]
+        }
+      }
+    ],
+    "state.start": [
+      {
+        "mouse.move": {
+          "x": 1365,
+          "y": 767,
+          "duration": 0.15
+        }
+      },
+      {
+        "delay": 0.01
+      },
+      {
+        "open_url": "http://hysps.mic.com.tw/_layouts/15/start.aspx#/SitePages/MiTAC%20New%20Portal%20Homepage.aspx"
+      },
+      {
+        "delay": 0.01
+      },
+      {
+        "call": "state.ioa"
+      }
+    ],
+    "state.ioa": [
+      {
+        "mouse.move": {
+          "x": 1365,
+          "y": 767,
+          "duration": 0.15
+        }
+      },
+      {
+        "delay": 0.01
+      },
+      {
+        "call": "ensure_login"
+      },
+      {
+        "until": {
+          "locate": {
+            "file": "C:\\python_automation\\assets\\ioa.png"
+          },
+          "timeout": 5.0
+        }
+      },
+      {
+        "locate": {
+          "file": "C:\\python_automation\\assets\\ioa.png",
+          "click": true,
+          "percent": [
+            0.50,
+            0.50
+          ]
+        }
+      },
+      {
+        "delay": 0.01
+      },
+      {
+        "call": "state.oracle"
+      }
+    ],
+    "state.oracle": [
+      {
+        "mouse.move": {
+          "x": 1365,
+          "y": 767,
+          "duration": 0.15
+        }
+      },
+      {
+        "delay": 0.01
+      },
+      {
+        "call": "ensure_login"
+      },
+      {
+        "until": {
+          "locate": {
+            "file": "C:\\python_automation\\assets\\oracle.png"
+          },
+          "timeout": 5.0
+        }
+      },
+      {
+        "locate": {
+          "file": "C:\\python_automation\\assets\\oracle.png",
+          "click": true,
+          "percent": [
+            0.50,
+            0.50
+          ]
+        }
+      },
+      {
+        "delay": 0.01
+      },
+      {
+        "call": "state.service_platform"
+      }
+    ],
+    "state.service_platform": [
+      {
+        "mouse.move": {
+          "x": 1365,
+          "y": 767,
+          "duration": 0.15
+        }
+      },
+      {
+        "delay": 0.01
+      },
+      {
+        "call": "ensure_login"
+      },
+      {
+        "until": {
+          "locate": {
+            "file": "C:\\python_automation\\assets\\service_platform.png"
+          },
+          "timeout": 5.0
+        }
+      },
+      {
+        "locate": {
+          "file": "C:\\python_automation\\assets\\service_platform.png",
+          "click": true,
+          "percent": [
+            0.50,
+            0.50
+          ]
+        }
+      },
+      {
+        "delay": 0.01
+      },
+      {
+        "call": "state.member_sevice_mct"
+      }
+    ],
+    "state.member_sevice_mct": [
+      {
+        "mouse.move": {
+          "x": 1365,
+          "y": 767,
+          "duration": 0.15
+        }
+      },
+      {
+        "delay": 0.01
+      },
+      {
+        "call": "ensure_login"
+      },
+      {
+        "until": {
+          "locate": {
+            "file": "C:\\python_automation\\assets\\member_sevice_mct.png"
+          },
+          "timeout": 5.0
+        }
+      },
+      {
+        "locate": {
+          "file": "C:\\python_automation\\assets\\member_sevice_mct.png",
+          "click": true,
+          "percent": [
+            0.50,
+            0.50
+          ]
+        }
+      },
+      {
+        "delay": 0.01
+      },
+      {
+        "call": "state.work"
+      }
+    ],
+    "state.work": [
+      {
+        "mouse.move": {
+          "x": 1365,
+          "y": 767,
+          "duration": 0.15
+        }
+      },
+      {
+        "delay": 0.01
+      },
+      {
+        "call": "ensure_login"
+      },
+      {
+        "until": {
+          "locate": {
+            "file": "C:\\python_automation\\assets\\work.png"
+          },
+          "timeout": 5.0
+        }
+      },
+      {
+        "locate": {
+          "file": "C:\\python_automation\\assets\\work.png",
+          "click": true,
+          "percent": [
+            0.50,
+            0.50
+          ]
+        }
+      },
+      {
+        "delay": 0.01
+      },
+      {
+        "call": "state.card_record"
+      }
+    ],
+    "state.card_record": [
+      {
+        "mouse.move": {
+          "x": 1365,
+          "y": 767,
+          "duration": 0.15
+        }
+      },
+      {
+        "delay": 0.01
+      },
+      {
+        "call": "ensure_login"
+      },
+      {
+        "until": {
+          "locate": {
+            "file": "C:\\python_automation\\assets\\card_record.png"
+          },
+          "timeout": 5.0
+        }
+      },
+      {
+        "locate": {
+          "file": "C:\\python_automation\\assets\\card_record.png",
+          "click": true,
+          "percent": [
+            0.50,
+            0.50
+          ]
+        }
+      },
+      {
+        "delay": 0.01
+      },
+      {
+        "call": "state.search"
+      }
+    ],
+    "state.search": [
+      {
+        "mouse.move": {
+          "x": 1365,
+          "y": 767,
+          "duration": 0.15
+        }
+      },
+      {
+        "delay": 0.01
+      },
+      {
+        "call": "ensure_login"
+      },
+      {
+        "until": {
+          "locate": {
+            "file": "C:\\python_automation\\assets\\search.png"
+          },
+          "timeout": 5.0
+        }
+      },
+      {
+        "locate": {
+          "file": "C:\\python_automation\\assets\\search.png",
+          "click": true,
+          "percent": [
+            0.50,
+            0.50
+          ]
+        }
+      },
+      {
+        "delay": 0.01
+      },
+      {
+        "call": "state.success"
+      }
+    ],
+    "state.success": [
+      {
+        "mouse.move": {
+          "x": 1365,
+          "y": 767,
+          "duration": 0.15
+        }
+      },
+      {
+        "delay": 0.01
+      },
+      {
+        "call": "ensure_login"
+      },
+      {
+        "until": {
+          "locate": {
+            "file": "C:\\python_automation\\assets\\search_fine.png"
+          },
+          "timeout": 5.0
+        }
+      },
+      {
+        "end": "完成：search_fine.png 已出現，結束腳本"
+      }
+    ]
+  },
+  "steps": [
+    {
+      "mouse.move": {
+        "x": 1365,
+        "y": 767,
+        "duration": 0.15
+      }
+    },
+    {
+      "delay": 0.01
+    },
+    {
+      "call": "state.start"
+    }
+  ]
+}
